@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Twitter, Mail, BookOpen, ExternalLink, Leaf, ChevronDown, Globe } from 'lucide-react';
 
+import aboutImg from '../public/image/about.jpg';
+import cyberpunkImg from '../public/image/cyberpunk.png';
+import destructionImg from '../public/image/destruction.png';
+import cozyImg from '../public/image/cozy.png';
+
 export default function App() {
     const [scrollY, setScrollY] = useState(0);
     const [activeWorldIndex, setActiveWorldIndex] = useState(0);
@@ -105,17 +110,12 @@ export default function App() {
 
                 {/* ヒーロー画像エリア */}
                 <div className="w-full max-w-5xl rounded-3xl overflow-hidden shadow-2xl shadow-sky-900/10 bg-white relative aspect-video flex items-center justify-center border-4 border-white reveal-on-scroll" style={{ transitionDelay: '0.8s' }}>
-                    {/* public/images/hero.png を配置してください */}
-                    <img
-                        src="/images/hero.png"
-                        alt="青空と廃墟の風景"
-                        className="w-full h-full object-cover animate-fade-in"
-                        style={{
-                            transform: `translateY(${scrollY * 0.15}px) scale(${1 + scrollY * 0.0002})`,
-                            transformOrigin: 'center top',
-                            willChange: 'transform'
-                        }}
-                    />
+                    {/* TODO: public/image/hero.png が準備できたら以下のimgタグのsrcを {heroImg} にし、上部でimportしてください */}
+                    {/* import heroImg from '../public/image/hero.png'; */}
+                    <div className="w-full h-full animate-fade-in bg-slate-200 flex items-center justify-center text-slate-400">
+                        {/* 仮のプレースホルダー */}
+                        <span className="text-xl">Hero Image Pending...</span>
+                    </div>
                 </div>
 
                 <div className="absolute bottom-10 animate-bounce text-slate-400">
@@ -142,8 +142,8 @@ export default function App() {
                         <div className="w-full lg:w-1/2 relative reveal-on-scroll" style={{ transitionDelay: '0.4s' }}>
                             <div className="absolute -inset-4 bg-gradient-to-tr from-sky-100 to-emerald-50 rounded-3xl transform rotate-3 scale-105 -z-10 animate-float-slow"></div>
                             <div className="rounded-2xl overflow-hidden shadow-lg bg-[#f4f7f6] aspect-video sm:aspect-[4/3] flex items-center justify-center">
-                                {/* public/images/about.png を配置してください */}
-                                <img src="/images/about.png" alt="終末世界の日常" className="w-full h-full object-cover" />
+                                {/* public/image/about.jpg を配置してください */}
+                                <img src={aboutImg} alt="終末世界の日常" className="w-full h-full object-contain" />
                             </div>
                         </div>
                     </div>
@@ -160,22 +160,22 @@ export default function App() {
 
                     {/* 画像 1: 黄金時代 (Cyberpunk) */}
                     <div className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${activeWorldIndex === 0 ? 'opacity-100' : 'opacity-0'}`}>
-                        {/* public/images/cyberpunk.png を配置してください */}
-                        <img src="/images/cyberpunk.png" className="w-full h-full object-cover scale-105" alt="黄金時代" />
+                        {/* public/image/cyberpunk.png を配置してください */}
+                        <img src={cyberpunkImg} className="w-full h-full object-contain scale-105" alt="黄金時代" />
                         <div className="absolute inset-0 bg-blue-950/70 mix-blend-multiply"></div>
                     </div>
 
                     {/* 画像 2: 終末事変 (Destruction) */}
                     <div className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${activeWorldIndex === 1 ? 'opacity-100' : 'opacity-0'}`}>
-                        {/* public/images/destruction.png を配置してください */}
-                        <img src="/images/destruction.png" className="w-full h-full object-cover scale-105" alt="終末事変" />
+                        {/* public/image/destruction.png を配置してください */}
+                        <img src={destructionImg} className="w-full h-full object-contain scale-105" alt="終末事変" />
                         <div className="absolute inset-0 bg-red-950/70 mix-blend-multiply"></div>
                     </div>
 
                     {/* 画像 3: 目覚め (Cozy Post-apocalyptic) */}
                     <div className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${activeWorldIndex === 2 ? 'opacity-100' : 'opacity-0'}`}>
-                        {/* public/images/cozy.png を配置してください */}
-                        <img src="/images/cozy.png" className="w-full h-full object-cover scale-105" alt="目覚め" />
+                        {/* public/image/cozy.png を配置してください */}
+                        <img src={cozyImg} className="w-full h-full object-contain scale-105" alt="目覚め" />
                         <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent"></div>
                     </div>
 
