@@ -351,14 +351,14 @@ export default function App() {
             </section>
 
             {/* フッター */}
-            <footer id="contact" className="bg-slate-900 text-slate-400 py-16 relative z-10 border-t border-slate-800">
+            <footer id="contact" className="bg-slate-900 text-slate-400 py-12 sm:py-16 relative z-10 border-t border-slate-800">
                 <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">
-                    <div className="flex items-center gap-2 mb-8 text-white cursor-pointer hover:text-sky-300 transition-colors" onClick={() => window.scrollTo(0, 0)}>
+                    <div className="flex items-center gap-2 mb-6 sm:mb-8 text-white cursor-pointer hover:text-sky-300 transition-colors" onClick={() => window.scrollTo(0, 0)}>
                         <Leaf className="h-6 w-6 text-emerald-500" />
                         <span className="font-bold text-2xl tracking-wider">青空アーカイブ</span>
                     </div>
 
-                    <div className="flex gap-6 mb-8">
+                    <div className="flex gap-6 mb-6 sm:mb-8">
                         <a href="#" className="hover:text-sky-400 hover:scale-110 transition-all bg-slate-800 p-4 rounded-full">
                             <Twitter className="w-5 h-5" />
                         </a>
