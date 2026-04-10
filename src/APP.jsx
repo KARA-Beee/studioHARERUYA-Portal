@@ -137,14 +137,14 @@ export default function App() {
             </nav>
 
             {/* ヒーローセクション */}
-            <section className="relative pt-24 pb-12 lg:pt-32 lg:pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto flex flex-col items-center text-center overflow-hidden min-h-screen justify-center z-10">
-                <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tight text-slate-800 mb-6 leading-tight blur-reveal" style={{ transitionDelay: '0.1s' }}>
+            <section className="relative pt-20 pb-8 sm:pt-24 sm:pb-12 lg:pt-32 lg:pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto flex flex-col items-center text-center overflow-hidden min-h-screen justify-center z-10">
+                <h1 className="text-3xl sm:text-5xl lg:text-7xl font-bold tracking-tight text-slate-800 mb-6 leading-tight blur-reveal" style={{ transitionDelay: '0.1s' }}>
                     終わった世界で、<br className="sm:hidden" />
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-emerald-400">
                         のんびりお茶を。
                     </span>
                 </h1>
-                <p className="max-w-2xl text-lg text-slate-600 mb-10 leading-relaxed reveal-on-scroll" style={{ transitionDelay: '0.5s' }}>
+                <p className="max-w-2xl text-base sm:text-lg text-slate-600 mb-10 leading-relaxed reveal-on-scroll" style={{ transitionDelay: '0.5s' }}>
                     サークル「青空アーカイブ」の公式ポータルサイトへようこそ。<br />
                     滅びたあとの静かな世界で、草花と青空に囲まれた穏やかな日常を描いています。
                 </p>
