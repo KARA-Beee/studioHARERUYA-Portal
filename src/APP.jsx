@@ -228,10 +228,10 @@ export default function App() {
                 <div className="relative z-10 -mt-[100vh]">
 
                     {/* Step 0: 黄金時代 */}
-                    <div className="world-step min-h-[150vh] flex items-center justify-center py-32" data-index="0">
-                        <div className="max-w-2xl mx-auto px-6 text-slate-200">
-                            <h3 className="text-3xl font-bold mb-8 tracking-widest text-cyan-400 blur-reveal">―――西暦2080年</h3>
-                            <div className="space-y-8 text-lg md:text-xl leading-loose font-medium drop-shadow-lg">
+                    <div className="world-step min-h-[120vh] lg:min-h-[150vh] flex items-center justify-center py-20 sm:py-32" data-index="0">
+                        <div className="max-w-2xl mx-auto px-4 sm:px-6 text-slate-200">
+                            <h3 className="text-2xl sm:text-3xl font-bold mb-8 tracking-widest text-cyan-400 blur-reveal">―――西暦2080年</h3>
+                            <div className="space-y-8 text-base sm:text-lg md:text-xl leading-loose font-medium drop-shadow-lg">
                                 <p className="reveal-on-scroll">人類文明は科学技術の発展により黄金時代を迎えました。</p>
                                 <p className="reveal-on-scroll" style={{ transitionDelay: '0.2s' }}>世界中に大都市が築かれ、生存圏は星の外にまで広がり、人間と遜色ない思考や行動が可能なアンドロイドが生まれ、医学の発展により人類は「老い」すら克服していたのです。</p>
                                 <p className="reveal-on-scroll" style={{ transitionDelay: '0.4s' }}>しかし、そんな文明の絶頂期は、突如として終わりを迎えます。</p>
@@ -241,12 +241,12 @@ export default function App() {
                     </div>
 
                     {/* Step 1: 終末事変 */}
-                    <div className="world-step min-h-[200vh] flex items-center justify-center py-32" data-index="1">
-                        <div className="max-w-3xl mx-auto px-6 text-center text-slate-200">
-                            <h3 className="text-4xl sm:text-6xl tracking-[0.5em] font-serif mb-12 select-none text-red-500 glitch-reveal">
+                    <div className="world-step min-h-[160vh] lg:min-h-[200vh] flex items-center justify-center py-20 sm:py-32" data-index="1">
+                        <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center text-slate-200">
+                            <h3 className="text-3xl sm:text-5xl lg:text-6xl tracking-[0.5em] font-serif mb-12 select-none text-red-500 glitch-reveal">
                                 ―終末事変―
                             </h3>
-                            <div className="space-y-8 text-lg md:text-xl leading-loose font-medium drop-shadow-xl bg-black/40 p-8 rounded-3xl backdrop-blur-sm border border-red-900/30">
+                            <div className="space-y-8 text-base sm:text-lg md:text-xl leading-loose font-medium drop-shadow-xl bg-black/40 p-6 sm:p-8 lg:p-12 rounded-3xl backdrop-blur-sm border border-red-900/30">
                                 <p className="reveal-on-scroll">後にそう呼ばれるこの事件の原因や詳細については、未だ明らかになっていません。</p>
                                 <p className="reveal-on-scroll" style={{ transitionDelay: '0.3s' }}>ただひとつ確かなことは、多くの人間の予想を裏切り、<br className="hidden sm:block" />あまりにもあっけなく世界が終わった。ということだけでしょう。</p>
                             </div>
@@ -254,21 +254,21 @@ export default function App() {
                     </div>
 
                     {/* Step 2: 目覚め (Cozy) */}
-                    <div className="world-step min-h-[250vh] flex flex-col items-center justify-center py-32" data-index="2">
-                        <div className="max-w-3xl mx-auto px-6 text-slate-100 w-full">
-                            <div className="bg-white/10 backdrop-blur-md border border-white/20 p-8 sm:p-12 rounded-3xl shadow-2xl mb-[40vh]">
-                                <div className="space-y-8 text-lg md:text-xl leading-loose font-medium drop-shadow-md">
+                    <div className="world-step min-h-[200vh] lg:min-h-[250vh] flex flex-col items-center justify-center py-20 sm:py-32" data-index="2">
+                        <div className="max-w-3xl mx-auto px-4 sm:px-6 text-slate-100 w-full">
+                            <div className="bg-white/10 backdrop-blur-md border border-white/20 p-6 sm:p-8 lg:p-12 rounded-3xl shadow-2xl mb-[40vh]">
+                                <div className="space-y-8 text-base sm:text-lg md:text-xl leading-loose font-medium drop-shadow-md">
                                     <p className="text-slate-300 italic blur-reveal">......... しかしながら、人類は滅亡していませんでした。</p>
                                     <p className="reveal-on-scroll" style={{ transitionDelay: '0.2s' }}>世界の終わりを予期していた人々が僅かながらも存在し、世界中にシェルターを建造していたのです。運良くそこに辿り着けた人々は、地表が安全になるまでの数十年間、地下で息を潜め続けました。</p>
-                                    <p className="reveal-on-scroll text-sky-300 font-bold text-2xl mt-8" style={{ transitionDelay: '0.4s' }}>2100年代になり、シェルターの多くのロックダウンが解除されました。</p>
+                                    <p className="reveal-on-scroll text-sky-300 font-bold text-xl sm:text-2xl mt-8" style={{ transitionDelay: '0.4s' }}>2100年代になり、シェルターの多くのロックダウンが解除されました。</p>
                                     <p className="reveal-on-scroll" style={{ transitionDelay: '0.6s' }}>地表に出た者たちが目にしたのは、滅びた文明と、それを覆う穏やかな夏の青空、白い雲、生い茂る緑。</p>
                                 </div>
                             </div>
-                            <div className="text-center bg-slate-900/40 backdrop-blur-md border border-white/10 p-8 sm:p-12 rounded-3xl shadow-2xl mx-auto w-full">
-                                <p className="text-lg text-slate-200 mb-8 reveal-on-scroll font-medium drop-shadow-md">
+                            <div className="text-center bg-slate-900/40 backdrop-blur-md border border-white/10 p-6 sm:p-8 lg:p-12 rounded-3xl shadow-2xl mx-auto w-full">
+                                <p className="text-base sm:text-lg text-slate-200 mb-8 reveal-on-scroll font-medium drop-shadow-md">
                                     終末事変の影響の残滓か、あるいは混乱の中で用いられた気象兵器の後遺症か。
                                 </p>
-                                <p className="text-2xl sm:text-4xl font-bold text-white leading-relaxed drop-shadow-lg blur-reveal" style={{ transitionDelay: '0.3s' }}>
+                                <p className="text-xl sm:text-3xl lg:text-4xl font-bold text-white leading-relaxed drop-shadow-lg blur-reveal" style={{ transitionDelay: '0.3s' }}>
                                     地球全土は穏やかな初夏の気候に抱かれ、<br />
                                     ただ静かで明るく、少し寂しい、<br />
                                     そんな光景が広がっていたのでした。
