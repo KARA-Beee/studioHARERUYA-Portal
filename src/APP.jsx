@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Twitter, Mail, BookOpen, ExternalLink, Leaf, ChevronDown, Globe } from 'lucide-react';
+import { Twitter, Mail, BookOpen, ExternalLink, Leaf, ChevronDown, Globe, Menu, X } from 'lucide-react';
 
 import aboutImg from '../public/image/about.jpg';
 import cyberpunkImg from '../public/image/cyberpunk.png';
@@ -10,6 +10,7 @@ export default function App() {
     const [scrollY, setScrollY] = useState(0);
     const [activeWorldIndex, setActiveWorldIndex] = useState(0);
     const [particles, setParticles] = useState([]);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     // --- 無重力パーティクル（antigravity）の初期化 ---
     useEffect(() => {
@@ -82,28 +83,68 @@ export default function App() {
             <nav className="fixed w-full z-50 bg-[#f4f7f6]/80 backdrop-blur-md border-b border-sky-100">
                 <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex justify-between items-center h-16">
-                        <div className="flex-shrink-0 flex items-center gap-2 cursor-pointer relative z-10" onClick={() => window.scrollTo(0, 0)}>
+                        <div className="flex-shrink-0 flex items-center gap-2 cursor-pointer relative z-10" onClick={() => { setIsMenuOpen(false); window.scrollTo(0, 0); }}>
                             <Leaf className="h-6 w-6 text-emerald-500" />
                             <span className="font-bold text-xl tracking-wider text-slate-800">青空アーカイブ</span>
                         </div>
+                        {/* デスクトップ用ナビ */}
                         <div className="hidden md:flex space-x-8 relative z-10">
                             <a href="#about" className="text-slate-600 hover:text-sky-500 transition-colors font-medium">About</a>
                             <a href="#world" className="text-slate-600 hover:text-sky-500 transition-colors font-medium">World</a>
                             <a href="#works" className="text-slate-600 hover:text-sky-500 transition-colors font-medium">Works</a>
                         </div>
+                        {/* モバイル用ハンバーガーボタン */}
+                        <button
+                            type="button"
+                            className="md:hidden relative z-10 p-2 -mr-2 text-slate-700 hover:text-sky-500 transition-colors"
+                            aria-label={isMenuOpen ? "メニューを閉じる" : "メニューを開く"}
+                            aria-expanded={isMenuOpen}
+                            onClick={() => setIsMenuOpen(!isMenuOpen)}
+                        >
+                            {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+                        </button>
+                    </div>
+                </div>
+
+                {/* モバイル用フルスクリーンメニューオーバーレイ */}
+                <div
+                    className={`md:hidden fixed inset-0 top-16 bg-[#f4f7f6]/95 backdrop-blur-md transition-opacity duration-300 ${isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
+                >
+                    <div className="flex flex-col items-center justify-center gap-8 pt-16 text-2xl">
+                        <a
+                            href="#about"
+                            className="text-slate-700 hover:text-sky-500 transition-colors font-medium"
+                            onClick={() => setIsMenuOpen(false)}
+                        >
+                            About
+                        </a>
+                        <a
+                            href="#world"
+                            className="text-slate-700 hover:text-sky-500 transition-colors font-medium"
+                            onClick={() => setIsMenuOpen(false)}
+                        >
+                            World
+                        </a>
+                        <a
+                            href="#works"
+                            className="text-slate-700 hover:text-sky-500 transition-colors font-medium"
+                            onClick={() => setIsMenuOpen(false)}
+                        >
+                            Works
+                        </a>
                     </div>
                 </div>
             </nav>
 
             {/* ヒーローセクション */}
-            <section className="relative pt-24 pb-12 lg:pt-32 lg:pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto flex flex-col items-center text-center overflow-hidden min-h-screen justify-center z-10">
-                <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tight text-slate-800 mb-6 leading-tight blur-reveal" style={{ transitionDelay: '0.1s' }}>
+            <section className="relative pt-20 pb-8 sm:pt-24 sm:pb-12 lg:pt-32 lg:pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto flex flex-col items-center text-center overflow-hidden min-h-screen justify-center z-10">
+                <h1 className="text-3xl sm:text-5xl lg:text-7xl font-bold tracking-tight text-slate-800 mb-6 leading-tight blur-reveal" style={{ transitionDelay: '0.1s' }}>
                     終わった世界で、<br className="sm:hidden" />
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-emerald-400">
                         のんびりお茶を。
                     </span>
                 </h1>
-                <p className="max-w-2xl text-lg text-slate-600 mb-10 leading-relaxed reveal-on-scroll" style={{ transitionDelay: '0.5s' }}>
+                <p className="max-w-2xl text-base sm:text-lg text-slate-600 mb-10 leading-relaxed reveal-on-scroll" style={{ transitionDelay: '0.5s' }}>
                     サークル「青空アーカイブ」の公式ポータルサイトへようこそ。<br />
                     滅びたあとの静かな世界で、草花と青空に囲まれた穏やかな日常を描いています。
                 </p>
@@ -124,15 +165,15 @@ export default function App() {
             </section>
 
             {/* About セクション */}
-            <section id="about" className="py-24 bg-white relative z-10">
+            <section id="about" className="py-16 sm:py-20 lg:py-24 bg-white relative z-10">
                 <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="flex flex-col lg:flex-row gap-16 items-center">
+                    <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 items-center">
                         <div className="w-full lg:w-1/2">
                             <h2 className="text-3xl font-bold text-slate-800 mb-8 flex items-center gap-3 blur-reveal">
                                 <Leaf className="text-emerald-400" />
                                 コンセプト
                             </h2>
-                            <div className="space-y-6 text-slate-600 leading-relaxed text-lg">
+                            <div className="space-y-6 text-slate-600 leading-relaxed text-base sm:text-lg">
                                 <p className="reveal-on-scroll" style={{ transitionDelay: '0.1s' }}>人類がいなくなった後の地球は、思いのほか平和でした。</p>
                                 <p className="reveal-on-scroll" style={{ transitionDelay: '0.3s' }}>コンクリートの隙間から芽吹く緑、錆びた標識に止まる小鳥たち、そして見上げるほどに高く澄み渡る青空。私たちはそんな「コージーカタストロフィー（穏やかな終末）」をテーマに、同人誌やイラスト集を制作しています。</p>
                                 <p className="reveal-on-scroll" style={{ transitionDelay: '0.5s' }}>アナログ水彩のあたたかみのあるタッチで、少し寂しくて、でもとても心地よい世界をお届けします。</p>
@@ -187,10 +228,10 @@ export default function App() {
                 <div className="relative z-10 -mt-[100vh]">
 
                     {/* Step 0: 黄金時代 */}
-                    <div className="world-step min-h-[150vh] flex items-center justify-center py-32" data-index="0">
-                        <div className="max-w-2xl mx-auto px-6 text-slate-200">
-                            <h3 className="text-3xl font-bold mb-8 tracking-widest text-cyan-400 blur-reveal">―――西暦2080年</h3>
-                            <div className="space-y-8 text-lg md:text-xl leading-loose font-medium drop-shadow-lg">
+                    <div className="world-step min-h-[120vh] lg:min-h-[150vh] flex items-center justify-center py-20 sm:py-32" data-index="0">
+                        <div className="max-w-2xl mx-auto px-4 sm:px-6 text-slate-200">
+                            <h3 className="text-2xl sm:text-3xl font-bold mb-8 tracking-widest text-cyan-400 blur-reveal">―――西暦2080年</h3>
+                            <div className="space-y-8 text-base sm:text-lg md:text-xl leading-loose font-medium drop-shadow-lg">
                                 <p className="reveal-on-scroll">人類文明は科学技術の発展により黄金時代を迎えました。</p>
                                 <p className="reveal-on-scroll" style={{ transitionDelay: '0.2s' }}>世界中に大都市が築かれ、生存圏は星の外にまで広がり、人間と遜色ない思考や行動が可能なアンドロイドが生まれ、医学の発展により人類は「老い」すら克服していたのです。</p>
                                 <p className="reveal-on-scroll" style={{ transitionDelay: '0.4s' }}>しかし、そんな文明の絶頂期は、突如として終わりを迎えます。</p>
@@ -200,12 +241,12 @@ export default function App() {
                     </div>
 
                     {/* Step 1: 終末事変 */}
-                    <div className="world-step min-h-[200vh] flex items-center justify-center py-32" data-index="1">
-                        <div className="max-w-3xl mx-auto px-6 text-center text-slate-200">
-                            <h3 className="text-4xl sm:text-6xl tracking-[0.5em] font-serif mb-12 select-none text-red-500 glitch-reveal">
+                    <div className="world-step min-h-[160vh] lg:min-h-[200vh] flex items-center justify-center py-20 sm:py-32" data-index="1">
+                        <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center text-slate-200">
+                            <h3 className="text-3xl sm:text-5xl lg:text-6xl tracking-[0.5em] font-serif mb-12 select-none text-red-500 glitch-reveal">
                                 ―終末事変―
                             </h3>
-                            <div className="space-y-8 text-lg md:text-xl leading-loose font-medium drop-shadow-xl bg-black/40 p-8 rounded-3xl backdrop-blur-sm border border-red-900/30">
+                            <div className="space-y-8 text-base sm:text-lg md:text-xl leading-loose font-medium drop-shadow-xl bg-black/40 p-6 sm:p-8 lg:p-12 rounded-3xl backdrop-blur-sm border border-red-900/30">
                                 <p className="reveal-on-scroll">後にそう呼ばれるこの事件の原因や詳細については、未だ明らかになっていません。</p>
                                 <p className="reveal-on-scroll" style={{ transitionDelay: '0.3s' }}>ただひとつ確かなことは、多くの人間の予想を裏切り、<br className="hidden sm:block" />あまりにもあっけなく世界が終わった。ということだけでしょう。</p>
                             </div>
@@ -213,21 +254,21 @@ export default function App() {
                     </div>
 
                     {/* Step 2: 目覚め (Cozy) */}
-                    <div className="world-step min-h-[250vh] flex flex-col items-center justify-center py-32" data-index="2">
-                        <div className="max-w-3xl mx-auto px-6 text-slate-100 w-full">
-                            <div className="bg-white/10 backdrop-blur-md border border-white/20 p-8 sm:p-12 rounded-3xl shadow-2xl mb-[40vh]">
-                                <div className="space-y-8 text-lg md:text-xl leading-loose font-medium drop-shadow-md">
+                    <div className="world-step min-h-[200vh] lg:min-h-[250vh] flex flex-col items-center justify-center py-20 sm:py-32" data-index="2">
+                        <div className="max-w-3xl mx-auto px-4 sm:px-6 text-slate-100 w-full">
+                            <div className="bg-white/10 backdrop-blur-md border border-white/20 p-6 sm:p-8 lg:p-12 rounded-3xl shadow-2xl mb-[40vh]">
+                                <div className="space-y-8 text-base sm:text-lg md:text-xl leading-loose font-medium drop-shadow-md">
                                     <p className="text-slate-300 italic blur-reveal">......... しかしながら、人類は滅亡していませんでした。</p>
                                     <p className="reveal-on-scroll" style={{ transitionDelay: '0.2s' }}>世界の終わりを予期していた人々が僅かながらも存在し、世界中にシェルターを建造していたのです。運良くそこに辿り着けた人々は、地表が安全になるまでの数十年間、地下で息を潜め続けました。</p>
-                                    <p className="reveal-on-scroll text-sky-300 font-bold text-2xl mt-8" style={{ transitionDelay: '0.4s' }}>2100年代になり、シェルターの多くのロックダウンが解除されました。</p>
+                                    <p className="reveal-on-scroll text-sky-300 font-bold text-xl sm:text-2xl mt-8" style={{ transitionDelay: '0.4s' }}>2100年代になり、シェルターの多くのロックダウンが解除されました。</p>
                                     <p className="reveal-on-scroll" style={{ transitionDelay: '0.6s' }}>地表に出た者たちが目にしたのは、滅びた文明と、それを覆う穏やかな夏の青空、白い雲、生い茂る緑。</p>
                                 </div>
                             </div>
-                            <div className="text-center bg-slate-900/40 backdrop-blur-md border border-white/10 p-8 sm:p-12 rounded-3xl shadow-2xl mx-auto w-full">
-                                <p className="text-lg text-slate-200 mb-8 reveal-on-scroll font-medium drop-shadow-md">
+                            <div className="text-center bg-slate-900/40 backdrop-blur-md border border-white/10 p-6 sm:p-8 lg:p-12 rounded-3xl shadow-2xl mx-auto w-full">
+                                <p className="text-base sm:text-lg text-slate-200 mb-8 reveal-on-scroll font-medium drop-shadow-md">
                                     終末事変の影響の残滓か、あるいは混乱の中で用いられた気象兵器の後遺症か。
                                 </p>
-                                <p className="text-2xl sm:text-4xl font-bold text-white leading-relaxed drop-shadow-lg blur-reveal" style={{ transitionDelay: '0.3s' }}>
+                                <p className="text-xl sm:text-3xl lg:text-4xl font-bold text-white leading-relaxed drop-shadow-lg blur-reveal" style={{ transitionDelay: '0.3s' }}>
                                     地球全土は穏やかな初夏の気候に抱かれ、<br />
                                     ただ静かで明るく、少し寂しい、<br />
                                     そんな光景が広がっていたのでした。
@@ -241,9 +282,9 @@ export default function App() {
             {/* ---------------------------------------------------------------- */}
 
             {/* Works セクション */}
-            <section id="works" className="py-24 bg-[#f4f7f6] relative z-10">
+            <section id="works" className="py-16 sm:py-20 lg:py-24 bg-[#f4f7f6] relative z-10">
                 <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-16 blur-reveal">
+                    <div className="text-center mb-10 sm:mb-16 blur-reveal">
                         <h2 className="text-3xl font-bold text-slate-800 flex items-center justify-center gap-3 mb-4">
                             <BookOpen className="text-sky-500" />
                             発行物
@@ -251,20 +292,20 @@ export default function App() {
                         <p className="text-slate-500">最新の同人誌・イラスト集</p>
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
                         {/* Work Item 1 */}
                         <div className="group bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden transform hover:-translate-y-2 reveal-on-scroll" style={{ transitionDelay: '0.1s' }}>
                             <div className="aspect-[3/4] bg-sky-100 relative overflow-hidden flex items-center justify-center">
                                 <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMiIgZmlsbD0iI2QxZDVkYiIvPjwvc3ZnPg==')] opacity-50"></div>
                                 <h3 className="text-2xl font-bold text-sky-800/40 z-10 rotate-[-10deg] group-hover:scale-110 transition-transform">New Book</h3>
                             </div>
-                            <div className="p-6 relative z-10 bg-white">
+                            <div className="p-5 sm:p-6 relative z-10 bg-white">
                                 <div className="flex justify-between items-start mb-2">
                                     <h3 className="font-bold text-lg text-slate-800">終末ピクニック Vol.3</h3>
                                     <span className="bg-sky-100 text-sky-600 text-xs px-2 py-1 rounded-full font-medium">最新刊</span>
                                 </div>
                                 <p className="text-slate-500 text-sm mb-4">廃線になった駅舎でパンを焼くお話。水彩イラストと掌編のフルカラー本です。</p>
-                                <button className="w-full flex items-center justify-center gap-2 bg-slate-800 hover:bg-slate-700 text-white px-4 py-2 rounded-lg transition-colors text-sm font-medium">
+                                <button type="button" className="w-full flex items-center justify-center gap-2 bg-slate-800 hover:bg-slate-700 text-white px-4 py-2 rounded-lg transition-colors text-sm font-medium">
                                     BOOTHで見る <ExternalLink className="w-4 h-4" />
                                 </button>
                             </div>
@@ -276,31 +317,31 @@ export default function App() {
                                 <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMiIgZmlsbD0iI2QxZDVkYiIvPjwvc3ZnPg==')] opacity-50"></div>
                                 <h3 className="text-2xl font-bold text-emerald-800/40 z-10 rotate-[-10deg] group-hover:scale-110 transition-transform">Art Book</h3>
                             </div>
-                            <div className="p-6 relative z-10 bg-white">
+                            <div className="p-5 sm:p-6 relative z-10 bg-white">
                                 <div className="flex justify-between items-start mb-2">
                                     <h3 className="font-bold text-lg text-slate-800">青空図録</h3>
                                     <span className="bg-slate-100 text-slate-600 text-xs px-2 py-1 rounded-full font-medium">既刊</span>
                                 </div>
                                 <p className="text-slate-500 text-sm mb-4">過去2年間のポストアポカリプス風景画をまとめた総集編イラスト集。</p>
-                                <button className="w-full flex items-center justify-center gap-2 bg-slate-800 hover:bg-slate-700 text-white px-4 py-2 rounded-lg transition-colors text-sm font-medium">
+                                <button type="button" className="w-full flex items-center justify-center gap-2 bg-slate-800 hover:bg-slate-700 text-white px-4 py-2 rounded-lg transition-colors text-sm font-medium">
                                     BOOTHで見る <ExternalLink className="w-4 h-4" />
                                 </button>
                             </div>
                         </div>
 
                         {/* Work Item 3 */}
-                        <div className="group bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden transform hover:-translate-y-2 sm:hidden lg:block reveal-on-scroll" style={{ transitionDelay: '0.3s' }}>
+                        <div className="group bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden transform hover:-translate-y-2 reveal-on-scroll" style={{ transitionDelay: '0.3s' }}>
                             <div className="aspect-[3/4] bg-amber-50 relative overflow-hidden flex items-center justify-center">
                                 <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMiIgZmlsbD0iI2QxZDVkYiIvPjwvc3ZnPg==')] opacity-50"></div>
                                 <h3 className="text-2xl font-bold text-amber-800/40 z-10 rotate-[-10deg] group-hover:scale-110 transition-transform">Goods</h3>
                             </div>
-                            <div className="p-6 relative z-10 bg-white">
+                            <div className="p-5 sm:p-6 relative z-10 bg-white">
                                 <div className="flex justify-between items-start mb-2">
                                     <h3 className="font-bold text-lg text-slate-800">水没都市のアクリルジオラマ</h3>
                                     <span className="bg-slate-100 text-slate-600 text-xs px-2 py-1 rounded-full font-medium">グッズ</span>
                                 </div>
                                 <p className="text-slate-500 text-sm mb-4">窓辺に飾ると光が透けて綺麗な、アクリル製の組み立て式ジオラマです。</p>
-                                <button className="w-full flex items-center justify-center gap-2 bg-slate-800 hover:bg-slate-700 text-white px-4 py-2 rounded-lg transition-colors text-sm font-medium">
+                                <button type="button" className="w-full flex items-center justify-center gap-2 bg-slate-800 hover:bg-slate-700 text-white px-4 py-2 rounded-lg transition-colors text-sm font-medium">
                                     BOOTHで見る <ExternalLink className="w-4 h-4" />
                                 </button>
                             </div>
@@ -310,14 +351,14 @@ export default function App() {
             </section>
 
             {/* フッター */}
-            <footer id="contact" className="bg-slate-900 text-slate-400 py-16 relative z-10 border-t border-slate-800">
+            <footer id="contact" className="bg-slate-900 text-slate-400 py-12 sm:py-16 relative z-10 border-t border-slate-800">
                 <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">
-                    <div className="flex items-center gap-2 mb-8 text-white cursor-pointer hover:text-sky-300 transition-colors" onClick={() => window.scrollTo(0, 0)}>
+                    <div className="flex items-center gap-2 mb-6 sm:mb-8 text-white cursor-pointer hover:text-sky-300 transition-colors" onClick={() => window.scrollTo(0, 0)}>
                         <Leaf className="h-6 w-6 text-emerald-500" />
                         <span className="font-bold text-2xl tracking-wider">青空アーカイブ</span>
                     </div>
 
-                    <div className="flex gap-6 mb-8">
+                    <div className="flex gap-6 mb-6 sm:mb-8">
                         <a href="#" className="hover:text-sky-400 hover:scale-110 transition-all bg-slate-800 p-4 rounded-full">
                             <Twitter className="w-5 h-5" />
                         </a>
