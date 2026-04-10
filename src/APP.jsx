@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Twitter, Mail, BookOpen, ExternalLink, Leaf, ChevronDown, Globe } from 'lucide-react';
+import { Twitter, Mail, BookOpen, ExternalLink, Leaf, ChevronDown, Globe, Menu, X } from 'lucide-react';
 
 import aboutImg from '../public/image/about.jpg';
 import cyberpunkImg from '../public/image/cyberpunk.png';
@@ -10,6 +10,7 @@ export default function App() {
     const [scrollY, setScrollY] = useState(0);
     const [activeWorldIndex, setActiveWorldIndex] = useState(0);
     const [particles, setParticles] = useState([]);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     // --- 無重力パーティクル（antigravity）の初期化 ---
     useEffect(() => {
