@@ -165,15 +165,15 @@ export default function App() {
             </section>
 
             {/* About セクション */}
-            <section id="about" className="py-24 bg-white relative z-10">
+            <section id="about" className="py-16 sm:py-20 lg:py-24 bg-white relative z-10">
                 <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="flex flex-col lg:flex-row gap-16 items-center">
+                    <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 items-center">
                         <div className="w-full lg:w-1/2">
                             <h2 className="text-3xl font-bold text-slate-800 mb-8 flex items-center gap-3 blur-reveal">
                                 <Leaf className="text-emerald-400" />
                                 コンセプト
                             </h2>
-                            <div className="space-y-6 text-slate-600 leading-relaxed text-lg">
+                            <div className="space-y-6 text-slate-600 leading-relaxed text-base sm:text-lg">
                                 <p className="reveal-on-scroll" style={{ transitionDelay: '0.1s' }}>人類がいなくなった後の地球は、思いのほか平和でした。</p>
                                 <p className="reveal-on-scroll" style={{ transitionDelay: '0.3s' }}>コンクリートの隙間から芽吹く緑、錆びた標識に止まる小鳥たち、そして見上げるほどに高く澄み渡る青空。私たちはそんな「コージーカタストロフィー（穏やかな終末）」をテーマに、同人誌やイラスト集を制作しています。</p>
                                 <p className="reveal-on-scroll" style={{ transitionDelay: '0.5s' }}>アナログ水彩のあたたかみのあるタッチで、少し寂しくて、でもとても心地よい世界をお届けします。</p>
