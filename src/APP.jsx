@@ -282,9 +282,9 @@ export default function App() {
             {/* ---------------------------------------------------------------- */}
 
             {/* Works セクション */}
-            <section id="works" className="py-24 bg-[#f4f7f6] relative z-10">
+            <section id="works" className="py-16 sm:py-20 lg:py-24 bg-[#f4f7f6] relative z-10">
                 <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-16 blur-reveal">
+                    <div className="text-center mb-10 sm:mb-16 blur-reveal">
                         <h2 className="text-3xl font-bold text-slate-800 flex items-center justify-center gap-3 mb-4">
                             <BookOpen className="text-sky-500" />
                             発行物
@@ -292,20 +292,20 @@ export default function App() {
                         <p className="text-slate-500">最新の同人誌・イラスト集</p>
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
                         {/* Work Item 1 */}
                         <div className="group bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden transform hover:-translate-y-2 reveal-on-scroll" style={{ transitionDelay: '0.1s' }}>
                             <div className="aspect-[3/4] bg-sky-100 relative overflow-hidden flex items-center justify-center">
                                 <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMiIgZmlsbD0iI2QxZDVkYiIvPjwvc3ZnPg==')] opacity-50"></div>
                                 <h3 className="text-2xl font-bold text-sky-800/40 z-10 rotate-[-10deg] group-hover:scale-110 transition-transform">New Book</h3>
                             </div>
-                            <div className="p-6 relative z-10 bg-white">
+                            <div className="p-5 sm:p-6 relative z-10 bg-white">
                                 <div className="flex justify-between items-start mb-2">
                                     <h3 className="font-bold text-lg text-slate-800">終末ピクニック Vol.3</h3>
                                     <span className="bg-sky-100 text-sky-600 text-xs px-2 py-1 rounded-full font-medium">最新刊</span>
                                 </div>
                                 <p className="text-slate-500 text-sm mb-4">廃線になった駅舎でパンを焼くお話。水彩イラストと掌編のフルカラー本です。</p>
-                                <button className="w-full flex items-center justify-center gap-2 bg-slate-800 hover:bg-slate-700 text-white px-4 py-2 rounded-lg transition-colors text-sm font-medium">
+                                <button type="button" className="w-full flex items-center justify-center gap-2 bg-slate-800 hover:bg-slate-700 text-white px-4 py-2 rounded-lg transition-colors text-sm font-medium">
                                     BOOTHで見る <ExternalLink className="w-4 h-4" />
                                 </button>
                             </div>
@@ -317,31 +317,31 @@ export default function App() {
                                 <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMiIgZmlsbD0iI2QxZDVkYiIvPjwvc3ZnPg==')] opacity-50"></div>
                                 <h3 className="text-2xl font-bold text-emerald-800/40 z-10 rotate-[-10deg] group-hover:scale-110 transition-transform">Art Book</h3>
                             </div>
-                            <div className="p-6 relative z-10 bg-white">
+                            <div className="p-5 sm:p-6 relative z-10 bg-white">
                                 <div className="flex justify-between items-start mb-2">
                                     <h3 className="font-bold text-lg text-slate-800">青空図録</h3>
                                     <span className="bg-slate-100 text-slate-600 text-xs px-2 py-1 rounded-full font-medium">既刊</span>
                                 </div>
                                 <p className="text-slate-500 text-sm mb-4">過去2年間のポストアポカリプス風景画をまとめた総集編イラスト集。</p>
-                                <button className="w-full flex items-center justify-center gap-2 bg-slate-800 hover:bg-slate-700 text-white px-4 py-2 rounded-lg transition-colors text-sm font-medium">
+                                <button type="button" className="w-full flex items-center justify-center gap-2 bg-slate-800 hover:bg-slate-700 text-white px-4 py-2 rounded-lg transition-colors text-sm font-medium">
                                     BOOTHで見る <ExternalLink className="w-4 h-4" />
                                 </button>
                             </div>
                         </div>
 
                         {/* Work Item 3 */}
-                        <div className="group bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden transform hover:-translate-y-2 sm:hidden lg:block reveal-on-scroll" style={{ transitionDelay: '0.3s' }}>
+                        <div className="group bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden transform hover:-translate-y-2 reveal-on-scroll" style={{ transitionDelay: '0.3s' }}>
                             <div className="aspect-[3/4] bg-amber-50 relative overflow-hidden flex items-center justify-center">
                                 <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMiIgZmlsbD0iI2QxZDVkYiIvPjwvc3ZnPg==')] opacity-50"></div>
                                 <h3 className="text-2xl font-bold text-amber-800/40 z-10 rotate-[-10deg] group-hover:scale-110 transition-transform">Goods</h3>
                             </div>
-                            <div className="p-6 relative z-10 bg-white">
+                            <div className="p-5 sm:p-6 relative z-10 bg-white">
                                 <div className="flex justify-between items-start mb-2">
                                     <h3 className="font-bold text-lg text-slate-800">水没都市のアクリルジオラマ</h3>
                                     <span className="bg-slate-100 text-slate-600 text-xs px-2 py-1 rounded-full font-medium">グッズ</span>
                                 </div>
                                 <p className="text-slate-500 text-sm mb-4">窓辺に飾ると光が透けて綺麗な、アクリル製の組み立て式ジオラマです。</p>
-                                <button className="w-full flex items-center justify-center gap-2 bg-slate-800 hover:bg-slate-700 text-white px-4 py-2 rounded-lg transition-colors text-sm font-medium">
+                                <button type="button" className="w-full flex items-center justify-center gap-2 bg-slate-800 hover:bg-slate-700 text-white px-4 py-2 rounded-lg transition-colors text-sm font-medium">
                                     BOOTHで見る <ExternalLink className="w-4 h-4" />
                                 </button>
                             </div>
