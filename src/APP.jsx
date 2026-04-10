@@ -83,15 +83,55 @@ export default function App() {
             <nav className="fixed w-full z-50 bg-[#f4f7f6]/80 backdrop-blur-md border-b border-sky-100">
                 <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex justify-between items-center h-16">
-                        <div className="flex-shrink-0 flex items-center gap-2 cursor-pointer relative z-10" onClick={() => window.scrollTo(0, 0)}>
+                        <div className="flex-shrink-0 flex items-center gap-2 cursor-pointer relative z-10" onClick={() => { setIsMenuOpen(false); window.scrollTo(0, 0); }}>
                             <Leaf className="h-6 w-6 text-emerald-500" />
                             <span className="font-bold text-xl tracking-wider text-slate-800">青空アーカイブ</span>
                         </div>
+                        {/* デスクトップ用ナビ */}
                         <div className="hidden md:flex space-x-8 relative z-10">
                             <a href="#about" className="text-slate-600 hover:text-sky-500 transition-colors font-medium">About</a>
                             <a href="#world" className="text-slate-600 hover:text-sky-500 transition-colors font-medium">World</a>
                             <a href="#works" className="text-slate-600 hover:text-sky-500 transition-colors font-medium">Works</a>
                         </div>
+                        {/* モバイル用ハンバーガーボタン */}
+                        <button
+                            type="button"
+                            className="md:hidden relative z-10 p-2 -mr-2 text-slate-700 hover:text-sky-500 transition-colors"
+                            aria-label={isMenuOpen ? "メニューを閉じる" : "メニューを開く"}
+                            aria-expanded={isMenuOpen}
+                            onClick={() => setIsMenuOpen(!isMenuOpen)}
+                        >
+                            {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+                        </button>
+                    </div>
+                </div>
+
+                {/* モバイル用フルスクリーンメニューオーバーレイ */}
+                <div
+                    className={`md:hidden fixed inset-0 top-16 bg-[#f4f7f6]/95 backdrop-blur-md transition-opacity duration-300 ${isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
+                >
+                    <div className="flex flex-col items-center justify-center gap-8 pt-16 text-2xl">
+                        <a
+                            href="#about"
+                            className="text-slate-700 hover:text-sky-500 transition-colors font-medium"
+                            onClick={() => setIsMenuOpen(false)}
+                        >
+                            About
+                        </a>
+                        <a
+                            href="#world"
+                            className="text-slate-700 hover:text-sky-500 transition-colors font-medium"
+                            onClick={() => setIsMenuOpen(false)}
+                        >
+                            World
+                        </a>
+                        <a
+                            href="#works"
+                            className="text-slate-700 hover:text-sky-500 transition-colors font-medium"
+                            onClick={() => setIsMenuOpen(false)}
+                        >
+                            Works
+                        </a>
                     </div>
                 </div>
             </nav>
